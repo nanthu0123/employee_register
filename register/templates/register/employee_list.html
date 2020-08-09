@@ -2,6 +2,23 @@
 
 {%block content%}
 
-<h1>this is employee list</h1>
+<table class="table table-borderless">
+        <thead class="border-bottom" style="font-weight: bold;">
+            <tr>
+                <td>Full Name</td>
+                <td>Emp. Code</td>
+                <td>Position</td>
+            </tr>
+        </thead>
+        <tbody>
+            {%for employee in employee_list%}
+            <tr>
+                <td>{{employee.fullname}}</td>
+                <td>{{employee.emp_code}}</td>
+                <td>{{employee.position}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+</table>
     
 {%endblock content%}
