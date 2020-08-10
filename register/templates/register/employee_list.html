@@ -1,5 +1,4 @@
 {%extends "register/base.html"%}
-
 {%block content%}
 
 <table class="table table-borderless">
@@ -22,11 +21,19 @@
             <td>{{employee.emp_code}}</td>
             <td>{{employee.position}}</td>
             <td>
-                <a href="{%url 'update' employee.id%}" class="btn text-secondary px-0"><i class="fa fa-edit fa-lg"></i></a>
+                <a href="{%url 'update' employee.id%}" class="btn text-secondary px-0">
+                    <i class="fa fa-edit fa-lg"></i>
+                </a>
+                <form action="{%url 'delete' employee.id%}" method="post" class="d-inline">
+                    {%csrf_token%}
+                    <button type="submit" class="btn">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                    </button>
+                </form>
             </td>
+
         </tr>
         {%endfor%}
     </tbody>
 </table>
-
 {%endblock content%}
